@@ -1,0 +1,9 @@
+"use strict";
+var <%= name.replace('-', '_') %> = require('.');
+<% if (mocha) {%>
+describe('<%= name %>', function () {
+	it('works', function () {
+		
+	});
+});
+<% } %>

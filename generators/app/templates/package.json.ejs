@@ -1,0 +1,43 @@
+{
+  "name": "<%= name %>",
+  "version": "<% version %>",
+  "description": "<%= desc %>",
+  "homepage": "<%= git + '#readme' %>",
+  "author": {
+    "name": "<%= author %>",
+    "email": "<%= email %>",
+    "url": "<%= homepage %>"
+  },
+  "main": "index.js",
+  <% if (cli) { %>
+  "bin": "cli.js",
+  <% } %>
+  "keywords": [<%- keywords.map(function (v) {return '"' + v + '"'; }).join(', ') %>],
+  "dependencies": {},
+  "devDependencies": {
+	<% if (eslint) { %>
+		"eslint": "*"
+	<% } %>
+  },
+<% if (eslint) {%>
+	"eslintConfig": {
+	"env": {
+      <% if (mocha) %>"mocha": true, <%;%>
+"node": true
+    }
+  },
+<% } %>
+  "scripts": {
+    "lint": "<%= lint %>",
+    "test": "<%= test %>"
+  },
+  "license": "<%= license %>",
+"repository": {
+    "type": "git",
+    "url": "<%= 'git+' + git %>"
+  },
+"bugs": {
+    "url": "<% git + '/issues' %>"
+  }
+
+}
